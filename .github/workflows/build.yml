@@ -62,9 +62,6 @@ jobs:
           name: app
           path: ./app
       - run: yarn electron-builder --x64 --dir
-        env:
-          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
       - run: |
           $job = Start-Job -ScriptBlock { .\dist\win-unpacked\Rocket.Chat.exe }
           if (Wait-Job $job -Timeout 30) {
@@ -72,9 +69,6 @@ jobs:
           }
           Remove-Job -force $job
       - run: yarn electron-builder --ia32 --dir
-        env:
-          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
       - run: |
           $job = Start-Job -ScriptBlock { .\dist\win-ia32-unpacked\Rocket.Chat.exe }
           if (Wait-Job $job -Timeout 30) {
@@ -100,9 +94,6 @@ jobs:
           name: app
           path: ./app
       - run: yarn electron-builder --dir
-        env:
-          CSC_LINK: ${{ secrets.MAC_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.MAC_CSC_KEY_PASSWORD }}
       - run: |
           brew install coreutils
           gtimeout 30 ./dist/mac/Rocket.Chat.app/Contents/MacOS/Rocket.Chat || code=$?
@@ -128,9 +119,6 @@ jobs:
           name: app
           path: ./app
       - run: yarn electron-builder --dir
-        env:
-          CSC_LINK: ${{ secrets.MAC_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.MAC_CSC_KEY_PASSWORD }}
       - run: |
           xvfb-run timeout 30 ./dist/linux-unpacked/rocketchat-desktop || code=$?
           if [[ $code -ne 124 && $code -ne 0 ]]; then
@@ -157,18 +145,12 @@ jobs:
       - run: yarn electron-builder --ia32 --x64 --win nsis
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
       - run: yarn electron-builder --ia32 --win msi
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
       - run: yarn electron-builder --x64 --win msi
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          CSC_LINK: ${{ secrets.WIN_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
       - uses: actions/upload-artifact@v2
         with:
           name: windows-dist
@@ -197,8 +179,6 @@ jobs:
       - run: yarn electron-builder
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          CSC_LINK: ${{ secrets.MAC_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.MAC_CSC_KEY_PASSWORD }}
           # Variables needed to notarization process:
           IS_PULL_REQUEST: false
           APPLEID: ${{ secrets.APPLEID }}
