@@ -10,6 +10,7 @@ function createWindow () {
   })
 
   win.loadURL('https://im.stageoffice.ru/')
+  // comment
 }
 
 app.whenReady().then(createWindow)
