@@ -1,0 +1,24 @@
+{
+  "name": "micrtest",
+  "version": "1.0.0",
+  "description": "for mic test",
+  "main": "main.js",
+  "scripts": {
+    "build": "electron-builder"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PauIGB/micrtest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PauIGB/micrtest/issues"
+  },
+  "homepage": "https://github.com/PauIGB/micrtest#readme",
+  "devDependencies": {
+    "electron": "^11.3.0",
+    "electron-builder": "^22.9.1"
+  }
+}
