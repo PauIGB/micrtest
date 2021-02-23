@@ -4,7 +4,7 @@
   "description": "mic test app",
   "main": "main.js",
   "scripts": {
-    "dist": "electron-builder"
+    "dist": "electron-builder --publish always"
   },
   "repository": {
     "type": "git",
