@@ -4,7 +4,7 @@
   "description": "mic test app",
   "main": "main.js",
   "scripts": {
-    "dist": "electron-builder --publish always"
+    "release": "yarn electron-builder --publish onTagOrDraft --x64"
   },
   "repository": {
     "type": "git",
