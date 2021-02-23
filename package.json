@@ -4,7 +4,7 @@
   "description": "for mic test",
   "main": "main.js",
   "scripts": {
-    "dist": "electron-builder publish never"
+    "dist": "electron-builder --publish never"
   },
   "repository": {
     "type": "git",
