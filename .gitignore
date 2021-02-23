@@ -1,1 +1,10 @@
-node_modules
+.DS_Store
+Thumbs.db
+*.log
+
+/.vscode
+/node_modules
+
+/app
+/dist
+/Development.provisionprofile
