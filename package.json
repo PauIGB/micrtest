@@ -4,7 +4,7 @@
   "description": "for mic test",
   "main": "main.js",
   "scripts": {
-    "build": "electron-builder"
+    "dist": "electron-builder"
   },
   "repository": {
     "type": "git",
