@@ -1,6 +1,6 @@
 {
   "name": "micrtest",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "mic test app",
   "main": "main.js",
   "scripts": {
